@@ -22,7 +22,8 @@
         </activity>
         <activity android:name=".IndexActivity" />
         <activity android:name=".QuizActivity" />
-        <activity android:name=".SigninActivity"></activity>
+        <activity android:name=".SigninActivity" />
+        <activity android:name=".DiscussActivity"></activity>
     </application>
 
 </manifest>
