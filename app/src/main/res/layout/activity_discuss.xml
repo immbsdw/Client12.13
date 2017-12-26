@@ -7,5 +7,13 @@
     android:layout_height="match_parent"
     tools:context="com.pku.codingma.client.DiscussActivity">
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintTop_toBottomOf="parent"
+        android:layout_marginTop="10dp"
+        android:text="发表贴子"
+        android:textSize="22sp"/>
+
 </android.support.constraint.ConstraintLayout>
 </ScrollView>
