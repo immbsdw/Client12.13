@@ -12,7 +12,7 @@ import android.widget.Toast;
 import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    private static User theUser=new User("a","a",-1,"a",1);
+    private static StaticUsr theUser=new StaticUsr("a","a",-1,"a",1);
     private EditText usrIdEditText;
     private EditText ursPasswordEditText;
     private EditText ursTypeEditText;

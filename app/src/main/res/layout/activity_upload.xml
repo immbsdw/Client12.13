@@ -7,13 +7,13 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="选择"
+        android:text="选择图片"
         android:id="@+id/selectImage"
         />
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="上传图片"
+        android:text="上传文件"
         android:id="@+id/uploadImage"
         />
     <ImageView

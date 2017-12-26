@@ -17,27 +17,27 @@ public class IndexActivity extends AppCompatActivity {
         //startActivity(intent);
     }
     public void toPersonal(View v){
-        //Intent intent=new Intent(this,PersonalActivity.class);//判断是否登录
+        //Intent intent=new Intent(this,PersonalActivity.class);
         //startActivity(intent);
     }
     public void toSignin(View v){
-        //Intent intent=new Intent(this, SigninActivity.class);//判断是否登录
+        Intent intent=new Intent(this, SigninActivity.class);
         //startActivity(intent);
     }
     public void toQuiz(View v){
-        //Intent intent=new Intent(this, QuizActivity.class);//判断是否登录
+        Intent intent=new Intent(this, QuizActivity.class);
         //startActivity(intent);
     }
     public void toQuestion(View v){
-        //Intent intent=new Intent(this, QuestionActivity.class);//判断是否登录
+        //Intent intent=new Intent(this, QuestionActivity.class);
         //startActivity(intent);
     }
     public void toDiscuss(View v){
-        //Intent intent=new Intent(this, DiscussActivity.class);//判断是否登录
+        //Intent intent=new Intent(this, DiscussActivity.class);
        // startActivity(intent);
     }
     public void toFileman(View v){
-        //Intent intent=new Intent(this, FilemanActivity.class);//判断是否登录
+        //Intent intent=new Intent(this, FilemanActivity.class);
         //startActivity(intent);
     }
 }

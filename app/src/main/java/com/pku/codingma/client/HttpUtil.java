@@ -11,7 +11,7 @@ package com.pku.codingma.client;
 
 public class HttpUtil {
     //封装的发送请求函数
-    public static void sendHttpRequest(final String address, final User user, final HttpCallbackListener listener) {
+    public static void sendHttpRequest(final String address, final StaticUsr user, final HttpCallbackListener listener) {
         if (!HttpUtil.isNetworkAvailable()){
             //这里写相应的网络设置处理
             return;
