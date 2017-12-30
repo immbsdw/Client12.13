@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
         //if(theUser.getUsrSex()!=-1) {
-            Intent intent = new Intent(MainActivity.this, IndexActivity.class);
+            Intent intent = new Intent(MainActivity.this, CourseDetailActivity.class);
             startActivity(intent);
         //}
     }

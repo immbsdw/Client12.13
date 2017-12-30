@@ -7,14 +7,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class IndexActivity extends AppCompatActivity {
+public class CourseDetailActivity extends AppCompatActivity {
 
     private ImageView avatar;
     private TextView username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_index);
+        setContentView(R.layout.activity_course_detail);
     }
     @Override
     protected void onStart(){
@@ -24,12 +24,8 @@ public class IndexActivity extends AppCompatActivity {
         username.setText(StaticUsr.userName);
         super.onStart();
     }
-    public void toLogin(View v){
-        Intent intent=new Intent(this, MainActivity.class);
-        //startActivity(intent);
-    }
-    public void toPersonal(View v){
-        //Intent intent=new Intent(this,PersonalActivity.class);
+    public void toQuery(View v){
+        //Intent intent=new Intent(this,QueryActivity.class);
         //startActivity(intent);
     }
     public void toSignin(View v){
@@ -45,11 +41,11 @@ public class IndexActivity extends AppCompatActivity {
         //startActivity(intent);
     }
     public void toDiscuss(View v){
-        //Intent intent=new Intent(this, DiscussActivity.class);
+        Intent intent=new Intent(this, DiscussActivity.class);
        // startActivity(intent);
     }
-    public void toFileman(View v){
-        //Intent intent=new Intent(this, FilemanActivity.class);
+    public void toFileDown(View v){
+        //Intent intent=new Intent(this, FileDownActivity.class);
         //startActivity(intent);
     }
 }
