@@ -1,133 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.pku.codingma.client.CourseDetailActivity">
+    android:background="@drawable/bkd">
+
+    <title.TitleLayout_main
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </title.TitleLayout_main>
+
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginBottom="200dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/sign"
-        android:id="@+id/title"
-        android:textSize="40sp"
-        android:text="软件项目管理"/>
-    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+    <EditText
+        android:id="@+id/show_the_class"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/quiz"
-        android:text="教师姓名"
-        android:textSize="25sp"
-        />
+        android:editable="false"
+        android:layout_gravity="center"/>
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginEnd="190dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/sign"
-        android:text="教师"
-        android:textSize="22sp"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <LinearLayout android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:text="教师   "
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="#000000"
+            />
+        <EditText
+            android:id="@+id/et_teacher"
+            android:layout_width="210dp"
+            android:layout_height="40dp"
+            android:textColor="#5b5b5b"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:editable="false"
+            android:background="@drawable/bkd001"/>
+    </LinearLayout>
+
+
+
+
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="150dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/quiz"
-        android:text="时间"
-        android:textSize="25sp"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="18dp" />
+
+
+    <LinearLayout android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:text="时间   "
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="#000000"
+            />
+        <EditText
+            android:id="@+id/et_time"
+            android:layout_width="210dp"
+            android:layout_height="40dp"
+            android:textColor="#5b5b5b"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:editable="false"
+            android:background="@drawable/bkd001"/>
+    </LinearLayout>
+
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="190dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/sign"
-        android:text="时间"
-        android:textSize="22sp"
-        />
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/sign"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="40dp"
-        app:layout_constraintTop_toBottomOf="parent"
-        android:layout_marginTop="350dp"
-        android:text="签到"
-        android:textSize="20sp"
-        android:onClick="toSignin"/>
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/quiz"
-        app:layout_constraintTop_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/sign"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="350dp"
-        android:textSize="20sp"
-        android:text="课堂测验"
-        android:onClick="toQuiz"/>
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/fileman"
-        app:layout_constraintTop_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/quiz"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="350dp"
-        android:textSize="20sp"
-        android:text="课件下载"
-        android:onClick="toFileDown"/>
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/discuss"
-        app:layout_constraintTop_toBottomOf="@id/sign"
-        app:layout_constraintStart_toEndOf="parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="40dp"
-        android:textSize="20sp"
-        android:text="课后讨论"
-        android:onClick="toDiscuss"/>
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/question"
-        app:layout_constraintTop_toBottomOf="@id/quiz"
-        app:layout_constraintStart_toEndOf="@id/discuss"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:textSize="20sp"
-        android:text="课堂提问"
-        android:onClick="toQuestion"/>
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/Query"
-        app:layout_constraintTop_toBottomOf="@id/fileman"
-        app:layout_constraintStart_toEndOf="@id/question"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:textSize="20sp"
-        android:text="查询"
-        android:onClick="toQuery"/>
-</android.support.constraint.ConstraintLayout>
+        android:layout_width="match_parent"
+        android:layout_height="80dp" />
+
+
+
+
+    <LinearLayout android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/mg_sign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/signin"
+            />
+        <ImageButton
+            android:id="@+id/mg_inquire"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/tiwen"
+            android:layout_marginLeft="30dp"/>
+        <ImageButton
+            android:id="@+id/mg_download"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/download"
+            android:layout_marginLeft="30dp"/>
+    </LinearLayout>
+
+    <LinearLayout android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="   签到"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="课堂测试"
+            android:layout_marginLeft="60dp"
+            android:textColor="#000000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="               课件下载"
+            android:layout_marginLeft="3dp"
+            android:textColor="#000000"/>
+    </LinearLayout>
+
+        <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp" />
+
+    <LinearLayout android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/imag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/discuss"
+            />
+        <ImageButton
+            android:id="@+id/mg_tiwen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/tiwen"
+            android:layout_marginLeft="30dp"/>
+        <ImageButton
+            android:id="@+id/mg_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sousuo"
+            android:layout_marginLeft="30dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   签到"
+            android:textColor="#000000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="课堂测试"
+            android:layout_marginLeft="60dp"
+            android:textColor="#000000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="               查询"
+            android:layout_marginLeft="3dp"
+            android:textColor="#000000"/>
+    </LinearLayout>
+
+
+</LinearLayout>
+
 
