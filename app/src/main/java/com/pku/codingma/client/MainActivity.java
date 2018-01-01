@@ -7,18 +7,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.content.Intent;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    private static StaticUsr theUser=new StaticUsr("a","a",-1,"a",1);
+    private MyApplication application;
     private EditText usrIdEditText;
     private EditText ursPasswordEditText;
-    private EditText ursTypeEditText;
+    private CheckBox ursType0=null;
+    private CheckBox ursType1=null;
     private Button mLoginButtonEditText;
-    private String originAddress = "http://10.0.0.3:8080/matsAdmin/api/usr/usrLogin.do";
-
+    private Button mRegisterButtonEditText;
+    JsonObject returnData2;
+    JsonObject returnData1;
+    private String originAddress = "http://10.0.0.6:8080/matsAdmin/api/usr/usrLogin.do";
+    int   usrtype=-1;
     Handler mHandler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -45,16 +54,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initView() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         usrIdEditText= (EditText) findViewById(R.id.usrId);
         ursPasswordEditText = (EditText) findViewById(R.id.ursPassword);
-        ursTypeEditText = (EditText) findViewById(R.id.ursType);
         mLoginButtonEditText = (Button) findViewById(R.id.loginButton);
+        mRegisterButtonEditText = (Button) findViewById(R.id.registerButton);
+        ursType0=(CheckBox)findViewById(R.id.ursType0);
+        ursType1=(CheckBox)findViewById(R.id.ursType1);
+        ursType0.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+                // TODO Auto-generated method stub
+                if(isChecked){
+                   usrtype=0;
+                }else{
+                    usrtype=-1;
+                }
+            }
+        });
+        ursType1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+                // TODO Auto-generated method stub
+                if(isChecked){
+                    usrtype=1;
+                }else{
+                    usrtype=-1;
+                }
+            }
+        });
     }
 
     private void initEvent() {
         mLoginButtonEditText.setOnClickListener(this);
+        mRegisterButtonEditText.setOnClickListener(this);
     }
 
     public void login() {
@@ -62,16 +96,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (!isInputValid()){
             return;
         }
-        int type=Integer.parseInt(ursTypeEditText.getText().toString());
-        User params=new User(usrIdEditText.getText().toString(),ursPasswordEditText.getText().toString(),1,"name1",type);
+        User params=new User(usrIdEditText.getText().toString(),ursPasswordEditText.getText().toString(),1,"name1",usrtype);
         try {
-            String compeletedURL = HttpUtil.getURLWithParams(originAddress, params);
-             HttpUtil.sendHttpRequest(compeletedURL,theUser,new HttpCallbackListener() {
+            String compeletedURL = HttpUtil.getURLWithParams(originAddress,params);
+            HttpUtil.sendHttpRequest(compeletedURL,new HttpCallbackListener() {
                 @Override
                 public void onFinish(String response) {
-                    Message message = new Message();
-                    message.obj = response;
-                    mHandler.sendMessage(message);
+                    try {
+                        Message message = new Message();
+                        System.out.println(response + " in here");
+                        returnData1 = new JsonParser().parse(response).getAsJsonObject();
+                        returnData2 = new JsonParser().parse(returnData1.get("data").toString()).getAsJsonObject();
+                        application = (MyApplication) getApplication();
+                        application.setUsrName(returnData2.get("usrName").toString());
+                        application.setUsrPassword(returnData2.get("usrPassword").toString());
+                        application.setUsrId(returnData2.get("usrId").toString());
+                        application.setUsrType(returnData2.get("usrType").getAsInt());
+                        application.setUsrSex(returnData2.get("usrSex").getAsInt());
+                        System.out.println(application.getUsrId());
+                        System.out.println(application.getUsrPassword());
+                        System.out.println(application.getUsrType());
+                        System.out.println(application.getUsrSex());
+                        System.out.println(application.getUsrName());
+                        Intent intent1 = new Intent(MainActivity.this, IndexActivity.class);
+                        startActivity(intent1);
+                    }
+                    catch(Exception e)
+                    {
+                        Message message = new Message();
+                        message = new Message();
+                        message.obj = "密码或用户类型错误";
+                        mHandler.sendMessage(message);
+                    }
                 }
 
                 @Override
@@ -81,6 +137,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     mHandler.sendMessage(message);
                 }
             });
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -97,10 +154,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.loginButton:
                 login();
                 break;
+            case R.id.registerButton:
+                Intent intent2 = new Intent(MainActivity.this,RegisterActivity.class);
+                startActivity(intent2);
         }
-        //if(theUser.getUsrSex()!=-1) {
-            Intent intent = new Intent(MainActivity.this, IndexActivity.class);
-            startActivity(intent);
-        //}
     }
 }

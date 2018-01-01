@@ -29,4 +29,5 @@ dependencies {
     implementation files('src/main/libs/ezmorph-1.0.3.jar')
     implementation files('src/main/libs/commons-logging.jar')
     implementation files('src/main/libs/json-lib-2.1-jdk15.jar')
+    implementation files('src/main/libs/gson-2.2.4.jar')
 }

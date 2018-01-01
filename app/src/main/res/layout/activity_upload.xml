@@ -7,18 +7,18 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="选择图片"
-        android:id="@+id/selectImage"
+        android:text="选择文件"
+        android:id="@+id/fileselect"
         />
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="上传文件"
-        android:id="@+id/uploadImage"
+        android:id="@+id/fileupload"
         />
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
+        android:id="@+id/fileView"
         />
 </LinearLayout>

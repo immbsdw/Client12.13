@@ -7,14 +7,13 @@ package com.pku.codingma.client;
         import java.io.UnsupportedEncodingException;
         import java.net.HttpURLConnection;
         import java.net.URL;
-        import net.sf.json.*;
 
 public class HttpUtil {
     //封装的发送请求函数
-    public static void sendHttpRequest(final String address, final StaticUsr user, final HttpCallbackListener listener) {
+    public static void sendHttpRequest(final String address, final HttpCallbackListener listener) {
         if (!HttpUtil.isNetworkAvailable()){
             //这里写相应的网络设置处理
-            return;
+            return ;
         }
         new Thread(new Runnable() {
             @Override
@@ -42,17 +41,6 @@ public class HttpUtil {
                     if (listener != null){
                         listener.onFinish(response.toString());
                     }
-                    JSONObject js=net.sf.json.JSONObject.fromObject(response.toString());
-                    String usrId= js.getString("usrId");
-                    String usrPassword= js.getString("usrPassword");
-                    String usrName= js.getString("usrName");
-                    int usrSex = Integer.parseInt(js.getString("usrSex"));
-                    int usrType = Integer.parseInt(js.getString("usrType"));
-                    user.setUrsPassword(usrPassword);
-                    user.setUrsType(usrType);
-                    user.setUsrId(usrId);
-                    user.setUsrSex(usrSex);
-                    user.setUserName(usrName);
                 } catch (Exception e) {
                     e.printStackTrace();
                     //出现异常则回调onError
@@ -66,6 +54,7 @@ public class HttpUtil {
                 }
             }
         }).start();
+        return ;
     }
     //组装出带参数的完整URL
     public static String getURLWithParams(String address,User params) throws UnsupportedEncodingException {
@@ -75,6 +64,8 @@ public class HttpUtil {
         url.append("?");
         //将map中的key，value构造进入URL中
         url.append("UsrId").append("=").append(params.getUsrId()).append("&");
+        url.append("UsrName").append("=").append(params.getUserName()).append("&");
+        url.append("UsrSex").append("=").append(params.getUsrSex()).append("&");
         url.append("UsrPassword").append("=").append(params.getUrsPassword()).append("&");
         url.append("UsrType").append("=").append(params.getUrsType());
         return url.toString();

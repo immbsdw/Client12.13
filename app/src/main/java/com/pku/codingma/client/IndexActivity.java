@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class IndexActivity extends AppCompatActivity {
 
     private ImageView avatar;
     private TextView username;
+    private static StaticUsr theUser=new StaticUsr();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +39,6 @@ public class IndexActivity extends AppCompatActivity {
         //startActivity(intent);
     }
     public void toQuiz(View v){
-        Intent intent=new Intent(this, QuizActivity.class);
         //startActivity(intent);
     }
     public void toQuestion(View v){

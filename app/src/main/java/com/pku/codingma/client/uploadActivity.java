@@ -23,9 +23,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 public class uploadActivity extends Activity implements OnClickListener{
-    private static String requestURL = "http://172.19.76.105/Secret/com/FileUpload";
-    private Button selectImage, uploadImage;
-    private ImageView imageView;
+    private static String requestURL = "http://10.0.0.6/Secret/com/FileUpload";
+    private Button selectfile, uploadfile;
+    private  ImageView imageView;
 
     private String picPath = null;
 
@@ -35,19 +35,19 @@ public class uploadActivity extends Activity implements OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        selectImage = (Button) this.findViewById(R.id.selectImage);
-        uploadImage = (Button) this.findViewById(R.id.uploadImage);
-        selectImage.setOnClickListener(this);
-        uploadImage.setOnClickListener(this);
+        selectfile = (Button) this.findViewById(R.id.fileselect);
+        uploadfile = (Button) this.findViewById(R.id.fileupload);
+        selectfile.setOnClickListener(this);
+        uploadfile.setOnClickListener(this);
 
-        imageView = (ImageView) this.findViewById(R.id.imageView);
+      imageView= (ImageView) this.findViewById(R.id.fileView);
 
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.selectImage:
+            case R.id.fileselect:
                 /***
                  * 这个是调用android内置的intent，来过滤图片文件 ，同时也可以过滤其他的
                  */
@@ -56,7 +56,7 @@ public class uploadActivity extends Activity implements OnClickListener{
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(intent, 1);
                 break;
-            case R.id.uploadImage:
+            case R.id.fileupload:
                 if (picPath == null) {
 
                     Toast.makeText(uploadActivity.this, "请选择图片！", 1000).show();
@@ -105,7 +105,7 @@ public class uploadActivity extends Activity implements OnClickListener{
                         picPath = path;
                         Bitmap bitmap = BitmapFactory.decodeStream(cr
                                 .openInputStream(uri));
-                        imageView.setImageBitmap(bitmap);
+                     imageView.setImageBitmap(bitmap);
                 } else {
                     alert();
                 }
