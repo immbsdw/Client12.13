@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bkd">
+
+    <title.TitleLayout_main
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </title.TitleLayout_main>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+    <EditText
+        android:id="@+id/show_the_class"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:editable="false"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <LinearLayout android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:text="教师   "
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="#000000"
+            />
+        <EditText
+            android:id="@+id/et_teacher"
+            android:layout_width="210dp"
+            android:layout_height="40dp"
+            android:textColor="#5b5b5b"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:editable="false"
+            android:background="@drawable/bkd001"/>
+    </LinearLayout>
+
+
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="18dp" />
+
+
+    <LinearLayout android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:text="时间   "
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="#000000"
+            />
+        <EditText
+            android:id="@+id/et_time"
+            android:layout_width="210dp"
+            android:layout_height="40dp"
+            android:textColor="#5b5b5b"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:editable="false"
+            android:background="@drawable/bkd001"/>
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp" />
+
+
+
+
+    <LinearLayout android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/mg_sign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/signin"
+            android:onClick="toSignin"
+            />
+        <ImageButton
+            android:id="@+id/mg_inquire"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/tiwen"
+            android:layout_marginLeft="30dp"
+            android:onClick="toQuiz"/>
+        <ImageButton
+            android:id="@+id/mg_download"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/download"
+            android:layout_marginLeft="30dp"
+            android:onClick="toDown"/>
+    </LinearLayout>
+
+    <LinearLayout android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="   签到"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="课堂测试"
+            android:layout_marginLeft="60dp"
+            android:textColor="#000000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="               课件下载"
+            android:layout_marginLeft="3dp"
+            android:textColor="#000000"/>
+    </LinearLayout>
+
+        <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp" />
+
+    <LinearLayout android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/discuss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/discuss"
+            />
+        <ImageButton
+            android:id="@+id/mg_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/tiwen"
+            android:layout_marginLeft="30dp"/>
+        <ImageButton
+            android:id="@+id/mg_query"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sousuo"
+            android:layout_marginLeft="30dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   讨论"
+            android:textColor="#000000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="课堂提问"
+            android:layout_marginLeft="60dp"
+            android:textColor="#000000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="               查询"
+            android:layout_marginLeft="3dp"
+            android:textColor="#000000"/>
+    </LinearLayout>
+
+
+</LinearLayout>
+
+

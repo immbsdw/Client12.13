@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bkd">
+
+    <title.TitleLayout_query
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </title.TitleLayout_query>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp" />
+
+    <LinearLayout android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:text="签到次数"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:textColor="#000000"
+            />
+        <EditText
+            android:id="@+id/button_sign_count"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:textColor="#5b5b5b"
+            android:editable="false"
+            android:background="@drawable/bkd001"/>
+    </LinearLayout>
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+
+    <LinearLayout android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:text="未签次数"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:textColor="#000000"
+            />
+        <EditText
+            android:id="@+id/button_unsigned_count"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:textColor="#5b5b5b"
+            android:editable="false"
+            android:background="@drawable/bkd001"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp" />
+
+
+    <Button
+        android:id="@+id/button_result"
+        android:layout_width="220dp"
+        android:layout_height="45dp"
+        android:text="测试成绩查询"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:textColor="#ffffff"
+        android:background="#3300ff"/>
+
+
+</LinearLayout>
