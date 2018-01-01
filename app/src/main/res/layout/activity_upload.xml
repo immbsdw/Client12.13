@@ -8,17 +8,12 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="选择文件"
-        android:id="@+id/fileselect"
+        android:id="@+id/selectFile"
         />
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="上传文件"
-        android:id="@+id/fileupload"
-        />
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/fileView"
+        android:id="@+id/uploadFile"
         />
 </LinearLayout>

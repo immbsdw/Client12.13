@@ -3,6 +3,8 @@ package com.pku.codingma.client;
 /**
  * Created by Administrator on 2017/12/26.
  */
+import android.util.Log;
+
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,19 +15,17 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.UUID;
 
-import android.util.Log;
-
 public class UploadUtil {
     private static final String TAG = "uploadFile";
     private static final int TIME_OUT = 10 * 1000; // 超时时间
     private static final String CHARSET = "utf-8"; // 设置编码
     /**
      * 上传文件到服务器
-     * @param file 需要上传的文件
+     * @param upfile 需要上传的文件
      * @param RequestURL 请求的rul
      * @return 返回响应的内容
      */
-    public static int uploadFile(File file, String RequestURL) {
+    public static int uploadFile(File upfile, String RequestURL,String usrId,String fileName,String courseID) {
         int res=0;
         String result = null;
         String BOUNDARY = UUID.randomUUID().toString(); // 边界标识 随机生成
@@ -33,6 +33,9 @@ public class UploadUtil {
         String CONTENT_TYPE = "multipart/form-data"; // 内容类型
 
         try {
+            System.out.println(RequestURL);
+            RequestURL=RequestURL+"?"+"courseId="+courseID +"&"+"usrId="+usrId+"&"+"fileName="+fileName;
+            System.out.println(RequestURL);
             URL url = new URL(RequestURL);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setReadTimeout(TIME_OUT);
@@ -45,7 +48,7 @@ public class UploadUtil {
             conn.setRequestProperty("connection", "keep-alive");
             conn.setRequestProperty("Content-Type", CONTENT_TYPE + ";boundary="+ BOUNDARY);
 
-            if (file != null) {
+            if (upfile != null) {
                 /**
                  * 当文件不为空时执行上传
                  */
@@ -59,13 +62,13 @@ public class UploadUtil {
                  * filename是文件的名字，包含后缀名
                  */
 
-                sb.append("Content-Disposition: form-data; name=\"file\"; filename=\""
-                        + file.getName() + "\"" + LINE_END);
+                sb.append("Content-Disposition: form-data; name=\"upfile\"; filename=\""
+                        + upfile.getName() + "\"" + LINE_END);
                 sb.append("Content-Type: application/octet-stream; charset="
                         + CHARSET + LINE_END);
                 sb.append(LINE_END);
                 dos.write(sb.toString().getBytes());
-                InputStream is = new FileInputStream(file);
+                InputStream is = new FileInputStream(upfile);
                 byte[] bytes = new byte[1024];
                 int len = 0;
                 while ((len = is.read(bytes)) != -1) {
@@ -77,7 +80,7 @@ public class UploadUtil {
                         .getBytes();
                 dos.write(end_data);
                 dos.flush();
-                /**
+                /*
                  * 获取响应码 200=成功 当响应成功，获取响应的流
                  */
                 res = conn.getResponseCode();
